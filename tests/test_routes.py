@@ -135,12 +135,13 @@ class TestAccountService(TestCase):
         self.assertEqual(data["name"], account.name)
 
     def test_get_account_list(self):
-        """It should Get a list of Accounts"""
+    """It should Get a list of Accounts"""
         self._create_accounts(5)
-        resp = self.client.get(BASE_URL)
+        resp = self.client.get(f"{BASE_URL}/accounts")  # Make sure you're calling the correct URL
         self.assertEqual(resp.status_code, status.HTTP_200_OK)
         data = resp.get_json()
         self.assertEqual(len(data), 5)
+
 
     def test_update_account(self):
         """It should Update an existing Account"""
