@@ -93,14 +93,6 @@ def get_account(account_id):
     return account.serialize(), status.HTTP_200_OK
 
 
-def test_get_account_not_found(self):
-    """
-    It should return 404 when trying to read a non-existent Account
-    """
-    resp = self.client.get(f"{BASE_URL}/0")  # Using 0 for a non-existent account
-    self.assertEqual(resp.status_code, status.HTTP_404_NOT_FOUND)
-
-
 
 
 ######################################################################
